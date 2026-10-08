@@ -162,7 +162,21 @@ export function BenefitsLesson() {
       </article>
 
       <footer className="border-t border-[#eee] px-6 pb-6 pt-4">
-        <div className="flex justify-center">
+        <div className="flex items-center gap-3">
+          <Link
+            href="/lesson/credit-scores"
+            className="flex flex-1 items-center justify-center rounded-full border border-[#d9d9d9] py-3.5 text-[16px] font-bold text-[#1a1a1a] transition active:scale-[0.98]"
+          >
+            Back
+          </Link>
+          <Link
+            href="/module/3"
+            className="flex flex-1 items-center justify-center rounded-full bg-[#3E7B88] py-3.5 text-[16px] font-bold text-white transition active:scale-[0.98]"
+          >
+            Next
+          </Link>
+        </div>
+        <div className="mt-4 flex justify-center">
           <div className="h-[5px] w-32 rounded-full bg-black/80" />
         </div>
       </footer>
