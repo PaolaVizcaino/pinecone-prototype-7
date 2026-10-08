@@ -129,7 +129,7 @@ export function BenefitsLesson() {
         </p>
 
         <img
-          src="/table-car-loan.png"
+          src="/table-car-loan.jpg"
           alt="Sam's $20,000 Car Loan: Fair 10.0% APR $425/mo $25,500 total, Good 6.8% APR $394/mo $23,640 total, Very Good 5.3% APR $380/mo $22,800 total"
           className="mt-5 w-full rounded-2xl"
         />
