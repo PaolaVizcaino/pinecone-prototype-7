@@ -21,23 +21,23 @@ function LessonRow({ lesson }: { lesson: Lesson }) {
   const icon =
     lesson.type === 'play' ? (
       lesson.active ? (
-        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-teal">
-          <Play className="h-4 w-4 fill-white text-white" />
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-teal">
+          <Play className="h-3.5 w-3.5 fill-white text-white" />
         </span>
       ) : (
-        <Play className="h-6 w-6 shrink-0 fill-[#1a1a1a] text-[#1a1a1a]" />
+        <Play className="h-5 w-5 shrink-0 fill-[#1a1a1a] text-[#1a1a1a]" />
       )
     ) : lesson.type === 'checkpoint' ? (
-      <Signpost className="h-6 w-6 shrink-0 text-teal" strokeWidth={2.5} />
+      <Signpost className="h-5 w-5 shrink-0 text-teal" strokeWidth={2.5} />
     ) : lesson.active ? (
-      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-teal">
-        <AlignLeft className="h-4 w-4 text-white" strokeWidth={2.5} />
+      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-teal">
+        <AlignLeft className="h-3.5 w-3.5 text-white" strokeWidth={2.5} />
       </span>
     ) : (
-      <AlignLeft className="h-6 w-6 shrink-0 text-[#1a1a1a]" strokeWidth={2.5} />
+      <AlignLeft className="h-5 w-5 shrink-0 text-[#1a1a1a]" strokeWidth={2.5} />
     )
 
-  const className = `flex w-full items-center gap-4 rounded-2xl px-2 py-2 text-left transition active:scale-[0.99] ${
+  const className = `flex w-full items-center gap-3 rounded-xl px-2 py-1.5 text-left transition active:scale-[0.99] ${
     lesson.active ? 'bg-[#eceded]' : ''
   }`
 
@@ -45,7 +45,7 @@ function LessonRow({ lesson }: { lesson: Lesson }) {
     return (
       <Link href={lesson.href} className={className}>
         {icon}
-        <span className="text-[19px] font-medium leading-snug text-[#1a1a1a] text-pretty">
+        <span className="text-[15px] font-medium leading-snug text-[#1a1a1a] text-pretty">
           {lesson.title}
         </span>
       </Link>
@@ -55,7 +55,7 @@ function LessonRow({ lesson }: { lesson: Lesson }) {
   return (
     <button type="button" className={className} aria-disabled="true">
       {icon}
-      <span className="text-[19px] font-medium leading-snug text-[#1a1a1a] text-pretty">
+      <span className="text-[15px] font-medium leading-snug text-[#1a1a1a] text-pretty">
         {lesson.title}
       </span>
     </button>
@@ -65,19 +65,19 @@ function LessonRow({ lesson }: { lesson: Lesson }) {
 function LessonGroupSection({ group }: { group: LessonGroup }) {
   const [open, setOpen] = useState(group.defaultOpen ?? false)
   return (
-    <section className="mt-5 first:mt-0">
+    <section className="mt-3 first:mt-0">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-start gap-2 py-2 text-left"
+        className="flex w-full items-start gap-2 py-1.5 text-left"
         aria-expanded={open}
       >
         <ChevronDown
-          className={`mt-1 h-6 w-6 shrink-0 text-[#4a5254] transition-transform ${
+          className={`mt-0.5 h-5 w-5 shrink-0 text-[#4a5254] transition-transform ${
             open ? '' : '-rotate-90'
           }`}
         />
-        <span className="text-[24px] font-extrabold leading-tight text-[#1a1a1a] text-balance">
+        <span className="text-[17px] font-extrabold leading-snug text-[#1a1a1a] text-balance">
           {group.title}
         </span>
       </button>
@@ -193,7 +193,7 @@ export function CourseScreen({ module }: { module: CourseModule }) {
 
       {/* Title */}
       <div className="px-5 pb-5 pt-5">
-        <h1 className="truncate text-[30px] font-extrabold leading-[1.1] text-[#1a1a1a]">
+        <h1 className="truncate text-[22px] font-extrabold leading-[1.15] text-[#1a1a1a]">
           {module.title}
         </h1>
       </div>
@@ -205,7 +205,7 @@ export function CourseScreen({ module }: { module: CourseModule }) {
             key={t}
             type="button"
             onClick={() => setActiveTab(t)}
-            className={`shrink-0 rounded-full px-4 py-2 text-[22px] font-semibold transition ${
+            className={`shrink-0 rounded-full px-3.5 py-1.5 text-[16px] font-semibold transition ${
               activeTab === t ? 'bg-[#eceded] text-[#1a1a1a]' : 'text-[#1a1a1a]'
             }`}
           >
@@ -226,8 +226,8 @@ export function CourseScreen({ module }: { module: CourseModule }) {
             </span>
           ) : null}
           <div className="flex-1">
-            <p className="text-[17px] text-[#6a6a6a]">{module.nextUp.label}</p>
-            <p className="mt-0.5 text-[19px] font-bold leading-snug text-[#1a1a1a] text-pretty">
+            <p className="text-[13px] text-[#6a6a6a]">{module.nextUp.label}</p>
+            <p className="mt-0.5 text-[16px] font-bold leading-snug text-[#1a1a1a] text-pretty">
               {module.nextUp.title}
             </p>
             {typeof module.nextUp.progress === 'number' ? (
@@ -251,7 +251,7 @@ export function CourseScreen({ module }: { module: CourseModule }) {
           <>
             {/* Optional plain subtitle */}
             {module.sectionSubtitle ? (
-              <h2 className="mt-6 text-[24px] font-extrabold leading-tight text-[#1a1a1a] text-balance">
+              <h2 className="mt-6 text-[17px] font-extrabold leading-snug text-[#1a1a1a] text-balance">
                 {module.sectionSubtitle}
               </h2>
             ) : null}
@@ -273,7 +273,7 @@ export function CourseScreen({ module }: { module: CourseModule }) {
                     module.sectionBoxed ? '' : 'mt-1'
                   } ${open ? '' : '-rotate-90'}`}
                 />
-                <span className="text-[24px] font-extrabold leading-tight text-[#1a1a1a] text-balance">
+                <span className="text-[17px] font-extrabold leading-snug text-[#1a1a1a] text-balance">
                   {module.sectionTitle}
                 </span>
               </button>
@@ -289,7 +289,7 @@ export function CourseScreen({ module }: { module: CourseModule }) {
                       <div className="h-[10px] flex-1 rounded-full bg-[#e6e6e6]">
                         <div className="h-full w-0 rounded-full bg-teal" />
                       </div>
-                      <span className="text-[20px] font-bold text-[#1a1a1a]">0%</span>
+                      <span className="text-[15px] font-bold text-[#1a1a1a]">0%</span>
                     </div>
                   ) : null}
                 </div>
