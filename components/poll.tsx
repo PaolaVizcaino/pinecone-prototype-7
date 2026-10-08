@@ -57,40 +57,40 @@ export function Poll({
   const hasVoted = voted !== null
 
   return (
-    <section className="bg-[#3E7B88] px-5 pb-8 pt-6 text-white">
+    <section className="bg-[#3E7B88] px-5 pb-6 pt-5 text-white">
       {/* Author header */}
-      <div className="flex items-center gap-3">
-        <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-maroon">
+      <div className="flex items-center gap-2.5">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-maroon">
           <img
             src="/figma/pinecone-icon.svg"
             alt=""
-            className="h-8 w-auto"
+            className="h-6 w-auto"
             aria-hidden="true"
           />
         </span>
         <div className="min-w-0">
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1">
             <span className="text-[16px] font-bold leading-tight">
               Pinecone by Stanford
             </span>
-            <ShieldCheck className="h-5 w-5 fill-[#5b7cc4] text-white" />
-            <Star className="h-5 w-5 fill-[#f2c14e] text-[#f2c14e]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#57d67d]" />
+            <ShieldCheck className="h-4 w-4 fill-[#5b7cc4] text-white" />
+            <Star className="h-4 w-4 fill-[#f2c14e] text-[#f2c14e]" />
+            <span className="h-2 w-2 rounded-full bg-[#57d67d]" />
           </div>
           <p className="text-[13px] text-white/70">Posted 4mos ago</p>
         </div>
       </div>
 
       {/* Question */}
-      <p className="mt-6 text-center text-[12px] font-medium uppercase tracking-wide text-white/85">
+      <p className="mt-4 text-center text-[12px] font-medium uppercase tracking-wide text-white/85">
         Responses are public
       </p>
-      <h2 className="mt-1 text-center text-[20px] font-bold leading-tight text-balance">
+      <h2 className="mt-1 text-center text-[19px] font-bold leading-snug text-balance">
         {question}
       </h2>
 
       {/* Options */}
-      <div className="mt-5 flex flex-col gap-3">
+      <div className="mt-4 flex flex-col gap-2">
         {options.map((opt, i) => {
           const selected = voted === i
           return (
@@ -100,7 +100,7 @@ export function Poll({
               disabled={hasVoted}
               onClick={() => setVoted(i)}
               aria-pressed={selected}
-              className={`relative min-h-[80px] w-full overflow-hidden rounded-2xl bg-[#173a44]/55 px-5 py-4 text-left transition active:scale-[0.99] ${
+              className={`relative min-h-[52px] w-full overflow-hidden rounded-xl bg-[#173a44]/55 px-4 py-3 text-left transition active:scale-[0.99] ${
                 selected ? 'ring-2 ring-white' : 'ring-1 ring-white/10'
               } ${hasVoted ? 'cursor-default' : 'cursor-pointer'}`}
             >
@@ -113,12 +113,12 @@ export function Poll({
                 />
               )}
               <span className="relative flex items-start justify-between gap-3">
-                <span className="flex min-h-[40px] items-center text-[15px] font-medium leading-snug text-pretty">
+                <span className="flex min-h-[28px] items-center text-[14px] font-medium leading-snug text-pretty">
                   {opt.label}
                 </span>
                 {hasVoted && opt.pct > 0 && (
-                  <span className="flex shrink-0 flex-col items-end gap-1.5">
-                    <span className="text-[14px] font-bold tabular-nums">
+                  <span className="flex shrink-0 flex-col items-end gap-1">
+                    <span className="text-[13px] font-bold tabular-nums">
                       {opt.pct}%
                     </span>
                     <span className="flex -space-x-2">
@@ -129,7 +129,7 @@ export function Poll({
                           <span
                             key={a}
                             aria-hidden="true"
-                            className="flex h-6 w-6 items-center justify-center rounded-full text-[8px] font-bold text-white ring-2 ring-[#3E7B88]"
+                            className="flex h-5 w-5 items-center justify-center rounded-full text-[7px] font-bold text-white ring-2 ring-[#3E7B88]"
                             style={{ backgroundColor: avatarColor(i, a) }}
                           >
                             {avatarInitials(i, a).replace(/\./g, '')}
@@ -140,7 +140,7 @@ export function Poll({
                             src={avatarPhoto(i, a) || '/placeholder.svg'}
                             alt=""
                             aria-hidden="true"
-                            className="h-6 w-6 rounded-full object-cover ring-2 ring-[#3E7B88]"
+                            className="h-5 w-5 rounded-full object-cover ring-2 ring-[#3E7B88]"
                           />
                         )
                       )}
@@ -154,27 +154,27 @@ export function Poll({
       </div>
 
       {/* Module label */}
-      <p className="mt-6 text-[13px] text-white/80">{moduleLabel}</p>
+      <p className="mt-4 text-[13px] text-white/80">{moduleLabel}</p>
 
       {/* Reactions row */}
-      <div className="mt-5 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#1a1a1a]">
-            <SmilePlus className="h-6 w-6" strokeWidth={2} />
+      <div className="mt-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#1a1a1a]">
+            <SmilePlus className="h-5 w-5" strokeWidth={2} />
           </span>
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#1a1a1a]">
-            <MessageSquare className="h-6 w-6" strokeWidth={2} />
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#1a1a1a]">
+            <MessageSquare className="h-5 w-5" strokeWidth={2} />
           </span>
         </div>
-        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#1a1a1a]">
-          <Bookmark className="h-6 w-6" strokeWidth={2} />
+        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#1a1a1a]">
+          <Bookmark className="h-5 w-5" strokeWidth={2} />
         </span>
       </div>
 
       {/* Comment bar */}
-      <div className="mt-6 flex items-center gap-3 rounded-full bg-white/25 px-4 py-3">
-        <Plus className="h-6 w-6 shrink-0 text-white" strokeWidth={2.5} />
-        <span className="text-[15px] text-white/70">Write a comment&hellip;</span>
+      <div className="mt-4 flex items-center gap-2.5 rounded-full bg-white/25 px-3.5 py-2.5">
+        <Plus className="h-5 w-5 shrink-0 text-white" strokeWidth={2.5} />
+        <span className="text-[14px] text-white/70">Write a comment&hellip;</span>
       </div>
     </section>
   )
