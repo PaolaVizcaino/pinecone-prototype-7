@@ -82,10 +82,6 @@ export function CreditScoresLesson() {
           Just like a GPA makes it easier for schools or employers to compare students, a credit score makes it
           easier for lenders to compare borrowers.
         </p>
-        <p className="mt-4 text-[17px] leading-relaxed">
-          A higher score generally signals a higher likelihood of paying back money on time&mdash;meaning lower
-          risk for lenders and better offers (and lower costs) for you.
-        </p>
 
         <h2 className="mt-8 text-[21px] font-extrabold">Credit Score Ranges</h2>
         <p className="mt-3 text-[17px] leading-relaxed">
