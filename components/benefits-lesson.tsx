@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { MoreVertical, X, ArrowLeft, MessageCircle, Heart } from 'lucide-react'
+import { MoreVertical, X, ArrowLeft } from 'lucide-react'
 import { StatusBar } from './status-bar'
 import { Poll } from './poll'
 
@@ -19,23 +19,15 @@ function InstructorBlock() {
   )
 }
 
-function PollBanner({ text, onOpen }: { text: string; onOpen: () => void }) {
+function TakePollButton({ onOpen }: { onOpen: () => void }) {
   return (
     <button
       type="button"
       onClick={onOpen}
-      aria-label={`Open poll: ${text}`}
-      className="mt-8 flex w-full items-center gap-4 rounded-2xl bg-[#173a44] px-5 py-5 text-left transition active:scale-[0.99]"
+      aria-label="Take a poll"
+      className="mt-8 w-full rounded-full bg-gradient-to-br from-[#2f7f8f] to-[#0c4855] px-6 py-4 text-center text-[19px] font-extrabold text-white shadow-[0_4px_0_#0a3942,0_10px_18px_rgba(10,57,66,0.3)] transition active:translate-y-[2px] active:shadow-[0_2px_0_#0a3942,0_6px_12px_rgba(10,57,66,0.3)]"
     >
-      <span className="relative flex h-12 w-14 shrink-0 items-center justify-center">
-        <span className="absolute left-0 top-0 flex h-9 w-9 items-center justify-center rounded-2xl rounded-bl-sm bg-[#f2c14e] text-[#1a1a1a]">
-          <MessageCircle className="h-4 w-4" strokeWidth={2.5} />
-        </span>
-        <span className="absolute bottom-0 right-0 flex h-7 w-7 items-center justify-center rounded-2xl rounded-br-sm bg-[#a14a8a] text-white">
-          <Heart className="h-3.5 w-3.5 fill-white" strokeWidth={0} />
-        </span>
-      </span>
-      <span className="text-[19px] font-bold leading-snug text-white text-pretty">{text}</span>
+      Take a poll
     </button>
   )
 }
@@ -166,10 +158,7 @@ export function BenefitsLesson() {
           what&rsquo;s the biggest reason to care about having a higher credit score?
         </p>
 
-        <PollBanner
-          text="Which benefit of a higher credit score motivates you the most right now?"
-          onOpen={() => setShowPoll(true)}
-        />
+        <TakePollButton onOpen={() => setShowPoll(true)} />
       </article>
 
       <footer className="border-t border-[#eee] px-6 pb-6 pt-4">
