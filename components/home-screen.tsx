@@ -144,7 +144,6 @@ export function HomeScreen() {
                   icon={m.icon}
                   label={m.label}
                   href={m.href}
-                  featured={m.label.startsWith('1.')}
                 />
               ))}
             </div>
