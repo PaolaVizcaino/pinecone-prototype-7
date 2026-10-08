@@ -116,7 +116,7 @@ export function Poll({
                 <span className="flex min-h-[48px] items-center text-[19px] font-medium leading-snug text-pretty">
                   {opt.label}
                 </span>
-                {hasVoted && (
+                {hasVoted && opt.pct > 0 && (
                   <span className="flex shrink-0 flex-col items-end gap-1.5">
                     <span className="text-[18px] font-bold tabular-nums">
                       {opt.pct}%

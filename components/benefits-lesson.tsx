@@ -1,7 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
-import { MoreVertical, X } from 'lucide-react'
+import { MoreVertical, X, ArrowLeft, MessageCircle, Heart } from 'lucide-react'
 import { StatusBar } from './status-bar'
 import { Poll } from './poll'
 
@@ -18,7 +19,72 @@ function InstructorBlock() {
   )
 }
 
+function PollBanner({ text, onOpen }: { text: string; onOpen: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      aria-label={`Open poll: ${text}`}
+      className="mt-8 flex w-full items-center gap-4 rounded-2xl bg-[#173a44] px-5 py-5 text-left transition active:scale-[0.99]"
+    >
+      <span className="relative flex h-12 w-14 shrink-0 items-center justify-center">
+        <span className="absolute left-0 top-0 flex h-9 w-9 items-center justify-center rounded-2xl rounded-bl-sm bg-[#f2c14e] text-[#1a1a1a]">
+          <MessageCircle className="h-4 w-4" strokeWidth={2.5} />
+        </span>
+        <span className="absolute bottom-0 right-0 flex h-7 w-7 items-center justify-center rounded-2xl rounded-br-sm bg-[#a14a8a] text-white">
+          <Heart className="h-3.5 w-3.5 fill-white" strokeWidth={0} />
+        </span>
+      </span>
+      <span className="text-[19px] font-bold leading-snug text-white text-pretty">{text}</span>
+    </button>
+  )
+}
+
 export function BenefitsLesson() {
+  const [showPoll, setShowPoll] = useState(false)
+
+  if (showPoll) {
+    return (
+      <div className="flex min-h-full flex-col bg-[#3E7B88]">
+        <StatusBar variant="light" />
+        <div className="flex items-center justify-between px-5 pb-2 pt-1">
+          <button
+            type="button"
+            onClick={() => setShowPoll(false)}
+            aria-label="Back to lesson"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-[#bfe1e8] text-[#0f3d47] transition active:scale-95"
+          >
+            <ArrowLeft className="h-6 w-6" strokeWidth={2.5} />
+          </button>
+          <button
+            type="button"
+            aria-label="More options"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-[#bfe1e8] text-[#0f3d47] transition active:scale-95"
+          >
+            <MoreVertical className="h-6 w-6" strokeWidth={2.5} />
+          </button>
+        </div>
+
+        <Poll
+          question="Which benefit of a higher credit score motivates you the most right now?"
+          moduleLabel="3. Saving and Borrowing Decisions"
+          avatarStyle="initials"
+          options={[
+            { label: 'Getting approved more easily', pct: 0 },
+            { label: 'Paying lower interest rates', pct: 0 },
+            { label: 'Saving more money over time', pct: 50 },
+            { label: 'Having more flexibility and less stress', pct: 0 },
+            { label: "I'm not sure yet", pct: 50 },
+          ]}
+        />
+
+        <div className="mt-4 flex justify-center pb-4">
+          <div className="h-[5px] w-32 rounded-full bg-white/80" />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="flex min-h-full flex-col bg-white">
       <StatusBar variant="dark" />
@@ -100,19 +166,11 @@ export function BenefitsLesson() {
           what&rsquo;s the biggest reason to care about having a higher credit score?
         </p>
 
+        <PollBanner
+          text="Which benefit of a higher credit score motivates you the most right now?"
+          onOpen={() => setShowPoll(true)}
+        />
       </article>
-
-      <Poll
-        question="Which benefit of a higher credit score motivates you the most right now?"
-        moduleLabel="3. Saving and Borrowing Decisions"
-        avatarStyle="initials"
-        options={[
-          { label: 'Getting approved more easily', pct: 22 },
-          { label: 'Qualifying for lower interest rates', pct: 41 },
-          { label: 'Saving money over time', pct: 30 },
-          { label: "I'm not sure yet", pct: 7 },
-        ]}
-      />
 
       <footer className="border-t border-[#eee] px-6 pb-6 pt-4">
         <div className="flex justify-center">
