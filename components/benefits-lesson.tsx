@@ -150,7 +150,7 @@ export function BenefitsLesson() {
         <p className="mt-4 text-[17px] leading-relaxed">Same car. Same 5-year term. Just a stronger credit score.</p>
 
         <img
-          src="/credit-score-sam-car.jpg"
+          src="/credit-score-sam-car.png"
           alt="Illustration: Sam holding his new car keys and paperwork outside the dealership, with a thought bubble reading Saved $45/month and a note showing 5-year savings of $2,700"
           className="mt-6 w-full rounded-2xl"
         />
