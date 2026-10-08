@@ -23,9 +23,6 @@ function NextUpSection({ title, href }: { title: string; href: string }) {
   return (
     <div className="mt-10 bg-[#ececec] px-6 pb-8 pt-8 text-center">
       <p className="text-[19px] font-bold text-[#1a1a1a]">Let&rsquo;s move on to the next part</p>
-      <p className="mx-auto mt-1 max-w-[280px] text-[14px] leading-snug text-[#767676]">
-        (This is where your members will see their completion options)
-      </p>
       <Link
         href={href}
         className="mt-6 flex items-center justify-end gap-3 rounded-xl bg-white px-5 py-4 text-right shadow-[0_2px_10px_rgba(0,0,0,0.1)] transition active:scale-[0.99]"
