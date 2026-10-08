@@ -62,11 +62,11 @@ export function BenefitsLesson() {
           moduleLabel="3. Saving and Borrowing Decisions"
           avatarStyle="initials"
           options={[
-            { label: 'Getting approved more easily', pct: 0 },
-            { label: 'Paying lower interest rates', pct: 0 },
-            { label: 'Saving more money over time', pct: 50 },
-            { label: 'Having more flexibility and less stress', pct: 0 },
-            { label: "I'm not sure yet", pct: 50 },
+            { label: 'Getting approved more easily', pct: 18 },
+            { label: 'Paying lower interest rates', pct: 24 },
+            { label: 'Saving more money over time', pct: 40 },
+            { label: 'Having more flexibility and less stress', pct: 16 },
+            { label: "I'm not sure yet", pct: 2 },
           ]}
         />
 
