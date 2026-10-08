@@ -96,7 +96,7 @@ function ListCard({
 }
 
 export function HomeScreen() {
-  const [startOpen, setStartOpen] = useState(true)
+  const [startOpen, setStartOpen] = useState(false)
   const [pfOpen, setPfOpen] = useState(true)
 
   return (

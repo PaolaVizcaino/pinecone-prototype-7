@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { MoreVertical, X } from 'lucide-react'
 import { StatusBar } from './status-bar'
+import { Poll } from './poll'
 
 function InstructorBlock() {
   return (
@@ -93,6 +94,19 @@ export function CreditScoresLesson() {
           className="mt-6 w-full rounded-2xl"
         />
       </article>
+
+      <Poll
+        question="Do you know your credit score range?"
+        moduleLabel="3. Saving and Borrowing Decisions"
+        avatarStyle="initials"
+        options={[
+          { label: 'Poor (300\u2013579)', pct: 9 },
+          { label: 'Fair (580\u2013669)', pct: 19 },
+          { label: 'Good (670\u2013739)', pct: 28 },
+          { label: 'Very Good or Exceptional (740\u2013850)', pct: 36 },
+          { label: "I'm not sure yet", pct: 8 },
+        ]}
+      />
 
       <footer className="border-t border-[#eee] px-6 pb-6 pt-4">
         <div className="flex justify-center">

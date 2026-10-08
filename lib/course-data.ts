@@ -6,6 +6,12 @@ export type Lesson = {
   href?: string
 }
 
+export type LessonGroup = {
+  title: string
+  defaultOpen?: boolean
+  lessons: Lesson[]
+}
+
 export type CourseModule = {
   slug: string
   title: string
@@ -25,6 +31,7 @@ export type CourseModule = {
   sectionBoxed?: boolean
   showBottomProgress?: boolean
   lessons: Lesson[]
+  lessonGroups?: LessonGroup[]
 }
 
 export const courseModules: Record<string, CourseModule> = {
@@ -131,41 +138,66 @@ export const courseModules: Record<string, CourseModule> = {
     },
     sectionSubtitle: 'Saving and Borrowing Decisions',
     sectionTitle: 'Lesson 3: Maximizing Your Credit Score',
-    lessons: [
+    lessons: [],
+    lessonGroups: [
       {
-        title: 'Credit Scores: Your Financial Reputation',
-        img: '/quote-credit-score.png',
-        type: 'article',
-        active: true,
-        href: '/lesson/credit-scores',
+        title: 'Lesson 1: Saving and the Life-Cycle Model',
+        defaultOpen: false,
+        lessons: [
+          { title: 'The Life-Cycle Model: Planning for Stability Over Time', type: 'article' },
+          { title: 'Save for Retirement', type: 'article' },
+          { title: 'Life Is Uncertain: Save for the Unexpected', type: 'article' },
+          { title: 'Sam\u2019s Smooth Money Experiment', type: 'play' },
+          { title: 'Lesson 1 Checkpoint', type: 'checkpoint' },
+        ],
       },
       {
-        title: 'What Goes Into Your Credit Score?',
-        type: 'article',
+        title: 'Lesson 2: Managing Credit',
+        defaultOpen: false,
+        lessons: [
+          { title: 'Why People Borrow (and When It Makes Sense)', type: 'article' },
+          { title: 'What Is Credit and How Does It Work?', type: 'article' },
+          { title: 'Credit Cards: Convenient but Costly', type: 'article' },
+          { title: 'Smarter Credit Card Habits', type: 'article' },
+          { title: 'Auto Loans and Installment Borrowing', type: 'article' },
+          { title: 'Lesson 2 Checkpoint', type: 'checkpoint' },
+        ],
       },
       {
-        title: 'Jasmine \u0026 Sophia\u2019s Credit Score Glow-Up',
-        type: 'play',
-      },
-      {
-        title: 'The Benefits of a High Credit Score',
-        type: 'article',
-      },
-      {
-        title: 'Habits That Build (and Hurt) Your Credit Score',
-        type: 'article',
-      },
-      {
-        title: 'Lesson 3 Checkpoint',
-        type: 'checkpoint',
-      },
-      {
-        title: 'Time to Ask Pinecone',
-        type: 'article',
-      },
-      {
-        title: 'Where to Next?',
-        type: 'article',
+        title: 'Lesson 3: Maximizing Your Credit Score',
+        defaultOpen: true,
+        lessons: [
+          {
+            title: 'Credit Scores: Your Financial Reputation',
+            img: '/quote-credit-score.png',
+            type: 'article',
+            active: true,
+            href: '/lesson/credit-scores',
+          },
+          {
+            title: 'What Goes Into Your Credit Score?',
+            type: 'article',
+          },
+          {
+            title: 'Jasmine \u0026 Sophia\u2019s Credit Score Glow-Up',
+            type: 'play',
+          },
+          {
+            title: 'The Benefits of a High Credit Score',
+            img: '/credit-score-sam-car.jpg',
+            type: 'article',
+            active: true,
+            href: '/lesson/benefits',
+          },
+          {
+            title: 'Habits That Build (and Hurt) Your Credit Score',
+            type: 'article',
+          },
+          {
+            title: 'Lesson 3 Checkpoint',
+            type: 'checkpoint',
+          },
+        ],
       },
     ],
   },

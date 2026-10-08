@@ -26,14 +26,32 @@ function avatarPhoto(optionIndex: number, avatarIndex: number) {
   return avatarPhotos[(seed * 31) % avatarPhotos.length]
 }
 
+// Fake voter initials (no faces/photos) used for the voter avatars.
+const initialsPool = [
+  'A.R.', 'J.K.', 'M.T.', 'S.P.', 'D.L.', 'K.N.', 'R.C.', 'E.V.',
+  'T.H.', 'B.W.', 'L.G.', 'N.F.',
+]
+const initialsColors = ['#8A2338', '#1F7D6B', '#3E7B88', '#C97A2F', '#5B6B9C', '#A14A8A']
+
+function avatarInitials(optionIndex: number, avatarIndex: number) {
+  const seed = optionIndex * 7 + avatarIndex * 3 + 5
+  return initialsPool[(seed * 31) % initialsPool.length]
+}
+function avatarColor(optionIndex: number, avatarIndex: number) {
+  const seed = optionIndex * 5 + avatarIndex * 11 + 2
+  return initialsColors[(seed * 17) % initialsColors.length]
+}
+
 export function Poll({
   question,
   options,
   moduleLabel,
+  avatarStyle = 'photos',
 }: {
   question: string
   options: PollOption[]
   moduleLabel: string
+  avatarStyle?: 'photos' | 'initials'
 }) {
   const [voted, setVoted] = useState<number | null>(null)
   const hasVoted = voted !== null
@@ -106,15 +124,26 @@ export function Poll({
                     <span className="flex -space-x-2">
                       {Array.from({
                         length: Math.max(1, Math.round(opt.pct / 20)),
-                      }).map((_, a) => (
-                        <img
-                          key={a}
-                          src={avatarPhoto(i, a) || '/placeholder.svg'}
-                          alt=""
-                          aria-hidden="true"
-                          className="h-6 w-6 rounded-full object-cover ring-2 ring-[#3E7B88]"
-                        />
-                      ))}
+                      }).map((_, a) =>
+                        avatarStyle === 'initials' ? (
+                          <span
+                            key={a}
+                            aria-hidden="true"
+                            className="flex h-6 w-6 items-center justify-center rounded-full text-[8px] font-bold text-white ring-2 ring-[#3E7B88]"
+                            style={{ backgroundColor: avatarColor(i, a) }}
+                          >
+                            {avatarInitials(i, a).replace(/\./g, '')}
+                          </span>
+                        ) : (
+                          <img
+                            key={a}
+                            src={avatarPhoto(i, a) || '/placeholder.svg'}
+                            alt=""
+                            aria-hidden="true"
+                            className="h-6 w-6 rounded-full object-cover ring-2 ring-[#3E7B88]"
+                          />
+                        )
+                      )}
                     </span>
                   </span>
                 )}

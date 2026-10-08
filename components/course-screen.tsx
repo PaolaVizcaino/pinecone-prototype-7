@@ -15,7 +15,7 @@ import {
   Search,
 } from 'lucide-react'
 import { StatusBar } from './status-bar'
-import type { CourseModule, Lesson } from '@/lib/course-data'
+import type { CourseModule, Lesson, LessonGroup } from '@/lib/course-data'
 
 function LessonRow({ lesson }: { lesson: Lesson }) {
   const icon =
@@ -59,6 +59,36 @@ function LessonRow({ lesson }: { lesson: Lesson }) {
         {lesson.title}
       </span>
     </button>
+  )
+}
+
+function LessonGroupSection({ group }: { group: LessonGroup }) {
+  const [open, setOpen] = useState(group.defaultOpen ?? false)
+  return (
+    <section className="mt-5 first:mt-0">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full items-start gap-2 py-2 text-left"
+        aria-expanded={open}
+      >
+        <ChevronDown
+          className={`mt-1 h-6 w-6 shrink-0 text-[#4a5254] transition-transform ${
+            open ? '' : '-rotate-90'
+          }`}
+        />
+        <span className="text-[24px] font-extrabold leading-tight text-[#1a1a1a] text-balance">
+          {group.title}
+        </span>
+      </button>
+      {open && (
+        <div className="mt-2 flex flex-col gap-1">
+          {group.lessons.map((l) => (
+            <LessonRow key={l.title} lesson={l} />
+          ))}
+        </div>
+      )}
+    </section>
   )
 }
 
@@ -211,52 +241,62 @@ export function CourseScreen({ module }: { module: CourseModule }) {
           </div>
         </button>
 
-        {/* Optional plain subtitle */}
-        {module.sectionSubtitle ? (
-          <h2 className="mt-6 text-[24px] font-extrabold leading-tight text-[#1a1a1a] text-balance">
-            {module.sectionSubtitle}
-          </h2>
-        ) : null}
+        {module.lessonGroups ? (
+          <div className="mt-6">
+            {module.lessonGroups.map((group) => (
+              <LessonGroupSection key={group.title} group={group} />
+            ))}
+          </div>
+        ) : (
+          <>
+            {/* Optional plain subtitle */}
+            {module.sectionSubtitle ? (
+              <h2 className="mt-6 text-[24px] font-extrabold leading-tight text-[#1a1a1a] text-balance">
+                {module.sectionSubtitle}
+              </h2>
+            ) : null}
 
-        {/* Lesson section */}
-        <section className={module.sectionSubtitle ? 'mt-3' : 'mt-6'}>
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            className={`flex w-full items-center gap-2 text-left ${
-              module.sectionBoxed
-                ? 'rounded-2xl bg-[#eceded] px-4 py-4'
-                : 'items-start py-2'
-            }`}
-            aria-expanded={open}
-          >
-            <ChevronDown
-              className={`h-6 w-6 shrink-0 text-[#4a5254] transition-transform ${
-                module.sectionBoxed ? '' : 'mt-1'
-              } ${open ? '' : '-rotate-90'}`}
-            />
-            <span className="text-[24px] font-extrabold leading-tight text-[#1a1a1a] text-balance">
-              {module.sectionTitle}
-            </span>
-          </button>
+            {/* Lesson section */}
+            <section className={module.sectionSubtitle ? 'mt-3' : 'mt-6'}>
+              <button
+                type="button"
+                onClick={() => setOpen((v) => !v)}
+                className={`flex w-full items-center gap-2 text-left ${
+                  module.sectionBoxed
+                    ? 'rounded-2xl bg-[#eceded] px-4 py-4'
+                    : 'items-start py-2'
+                }`}
+                aria-expanded={open}
+              >
+                <ChevronDown
+                  className={`h-6 w-6 shrink-0 text-[#4a5254] transition-transform ${
+                    module.sectionBoxed ? '' : 'mt-1'
+                  } ${open ? '' : '-rotate-90'}`}
+                />
+                <span className="text-[24px] font-extrabold leading-tight text-[#1a1a1a] text-balance">
+                  {module.sectionTitle}
+                </span>
+              </button>
 
-          {open && (
-            <div className="mt-2 flex flex-col gap-1">
-              {module.lessons.map((l) => (
-                <LessonRow key={l.title} lesson={l} />
-              ))}
+              {open && (
+                <div className="mt-2 flex flex-col gap-1">
+                  {module.lessons.map((l) => (
+                    <LessonRow key={l.title} lesson={l} />
+                  ))}
 
-              {module.showBottomProgress ? (
-                <div className="mt-3 flex items-center gap-3 px-2">
-                  <div className="h-[10px] flex-1 rounded-full bg-[#e6e6e6]">
-                    <div className="h-full w-0 rounded-full bg-teal" />
-                  </div>
-                  <span className="text-[20px] font-bold text-[#1a1a1a]">0%</span>
+                  {module.showBottomProgress ? (
+                    <div className="mt-3 flex items-center gap-3 px-2">
+                      <div className="h-[10px] flex-1 rounded-full bg-[#e6e6e6]">
+                        <div className="h-full w-0 rounded-full bg-teal" />
+                      </div>
+                      <span className="text-[20px] font-bold text-[#1a1a1a]">0%</span>
+                    </div>
+                  ) : null}
                 </div>
-              ) : null}
-            </div>
-          )}
-        </section>
+              )}
+            </section>
+          </>
+        )}
       </main>
 
       {/* Bottom nav */}
