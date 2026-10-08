@@ -1,8 +1,29 @@
 'use client'
 
 import Link from 'next/link'
-import { MoreVertical, X } from 'lucide-react'
+import { MoreVertical, X, ChevronRight } from 'lucide-react'
 import { StatusBar } from './status-bar'
+
+function NextUpSection({ title, href }: { title: string; href: string }) {
+  return (
+    <div className="mt-10 bg-[#ececec] px-6 pb-8 pt-8 text-center">
+      <p className="text-[19px] font-bold text-[#1a1a1a]">Let&rsquo;s move on to the next part</p>
+      <p className="mx-auto mt-1 max-w-[280px] text-[14px] leading-snug text-[#767676]">
+        (This is where your members will see their completion options)
+      </p>
+      <Link
+        href={href}
+        className="mt-6 flex items-center justify-end gap-3 rounded-xl bg-white px-5 py-4 text-right shadow-[0_2px_10px_rgba(0,0,0,0.1)] transition active:scale-[0.99]"
+      >
+        <div className="min-w-0">
+          <p className="text-[12px] font-semibold uppercase tracking-wide text-[#8a8a8a]">Next</p>
+          <p className="mt-0.5 text-[17px] font-bold leading-snug text-[#1a1a1a] text-pretty">{title}</p>
+        </div>
+        <ChevronRight className="h-6 w-6 shrink-0 text-[#8a8a8a]" strokeWidth={2.5} />
+      </Link>
+    </div>
+  )
+}
 
 function InstructorBlock() {
   return (
@@ -94,25 +115,11 @@ export function CreditScoresLesson() {
         />
       </article>
 
-      <footer className="border-t border-[#eee] px-6 pb-6 pt-4">
-        <div className="flex items-center gap-3">
-          <Link
-            href="/module/3"
-            className="flex flex-1 items-center justify-center rounded-full border border-[#d9d9d9] py-3.5 text-[16px] font-bold text-[#1a1a1a] transition active:scale-[0.98]"
-          >
-            Back
-          </Link>
-          <Link
-            href="/lesson/benefits"
-            className="flex flex-1 items-center justify-center rounded-full bg-[#3E7B88] py-3.5 text-[16px] font-bold text-white transition active:scale-[0.98]"
-          >
-            Next
-          </Link>
-        </div>
-        <div className="mt-4 flex justify-center">
-          <div className="h-[5px] w-32 rounded-full bg-black/80" />
-        </div>
-      </footer>
+      <NextUpSection title="The Benefits of a High Credit Score" href="/lesson/benefits" />
+
+      <div className="flex justify-center bg-[#ececec] pb-4 pt-4">
+        <div className="h-[5px] w-32 rounded-full bg-black/80" />
+      </div>
     </div>
   )
 }
