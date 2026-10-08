@@ -88,8 +88,8 @@ export function CreditScoresLesson() {
         </p>
 
         <img
-          src="/credit-score-financial-reputation.jpg"
-          alt="Illustration: a person checking a credit score app on their phone, reading Very Good, 745"
+          src="/credit-score-financial-reputation.png"
+          alt="Illustration: a person checking a credit score app on their phone, reading Very Good, 750"
           className="mt-6 w-full rounded-2xl"
         />
       </article>
