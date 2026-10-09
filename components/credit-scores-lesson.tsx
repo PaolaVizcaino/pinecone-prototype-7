@@ -108,7 +108,7 @@ export function CreditScoresLesson() {
         />
       </article>
 
-      <NextUpSection title="The Benefits of a High Credit Score" href="/lesson/benefits" />
+      <NextUpSection title="What Goes Into Your Credit Score?" href="/module/3" />
 
       <div className="flex justify-center bg-[#ececec] pb-4 pt-4">
         <div className="h-[5px] w-32 rounded-full bg-black/80" />
