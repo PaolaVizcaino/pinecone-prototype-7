@@ -9,7 +9,6 @@ const modules = [
   {
     label: '1. Your Journey to Financial Freedom',
     icon: '/course/icon-send.svg',
-    href: '/course',
   },
   {
     label: '2. Budgeting and Money Management',
@@ -96,7 +95,7 @@ function ListCard({
 }
 
 export function HomeScreen() {
-  const [startOpen, setStartOpen] = useState(false)
+  const [startOpen, setStartOpen] = useState(true)
   const [pfOpen, setPfOpen] = useState(true)
 
   return (

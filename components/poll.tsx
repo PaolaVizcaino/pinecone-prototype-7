@@ -70,22 +70,22 @@ export function Poll({
         </span>
         <div className="min-w-0">
           <div className="flex items-center gap-1">
-            <span className="text-[16px] font-bold leading-tight">
+            <span className="text-[17px] font-bold leading-tight">
               Pinecone by Stanford
             </span>
             <ShieldCheck className="h-4 w-4 fill-[#5b7cc4] text-white" />
             <Star className="h-4 w-4 fill-[#f2c14e] text-[#f2c14e]" />
             <span className="h-2 w-2 rounded-full bg-[#57d67d]" />
           </div>
-          <p className="text-[13px] text-white/70">Posted 4mos ago</p>
+          <p className="text-[14px] text-white/70">Posted 4mos ago</p>
         </div>
       </div>
 
       {/* Question */}
-      <p className="mt-4 text-center text-[12px] font-medium uppercase tracking-wide text-white/85">
+      <p className="mt-4 text-center text-[13px] font-medium uppercase tracking-wide text-white/85">
         Responses are public
       </p>
-      <h2 className="mt-1 text-center text-[19px] font-bold leading-snug text-balance">
+      <h2 className="mt-1 text-center text-[21px] font-bold leading-snug text-balance">
         {question}
       </h2>
 
@@ -113,12 +113,12 @@ export function Poll({
                 />
               )}
               <span className="relative flex items-start justify-between gap-3">
-                <span className="flex min-h-[28px] items-center text-[14px] font-medium leading-snug text-pretty">
+                <span className="flex min-h-[28px] items-center text-[16px] font-medium leading-snug text-pretty">
                   {opt.label}
                 </span>
                 {hasVoted && opt.pct > 0 && (
                   <span className="flex shrink-0 flex-col items-end gap-1">
-                    <span className="text-[13px] font-bold tabular-nums">
+                    <span className="text-[14px] font-bold tabular-nums">
                       {opt.pct}%
                     </span>
                     <span className="flex -space-x-2">
@@ -154,7 +154,7 @@ export function Poll({
       </div>
 
       {/* Module label */}
-      <p className="mt-4 text-[13px] text-white/80">{moduleLabel}</p>
+      <p className="mt-4 text-[14px] text-white/80">{moduleLabel}</p>
 
       {/* Reactions row */}
       <div className="mt-4 flex items-center justify-between">
@@ -174,7 +174,7 @@ export function Poll({
       {/* Comment bar */}
       <div className="mt-4 flex items-center gap-2.5 rounded-full bg-white/25 px-3.5 py-2.5">
         <Plus className="h-5 w-5 shrink-0 text-white" strokeWidth={2.5} />
-        <span className="text-[14px] text-white/70">Write a comment&hellip;</span>
+        <span className="text-[15px] text-white/70">Write a comment&hellip;</span>
       </div>
     </section>
   )

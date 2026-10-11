@@ -116,8 +116,10 @@ export function BenefitsLesson() {
       </header>
 
       <article className="px-6 pt-4 pb-10 text-[#293141]">
-        <h1 className="text-[24px] font-extrabold leading-[1.2] text-balance">
-          The Benefits of a High Credit Score
+        <h1 className="text-[24px] font-extrabold leading-[1.2]">
+          The Benefits of a High
+          <br />
+          Credit Score
         </h1>
         <InstructorBlock />
 

@@ -199,6 +199,17 @@ export const courseModules: Record<string, CourseModule> = {
           },
         ],
       },
+      {
+        title: 'Lesson 4: Mortgages and Major Purchases',
+        defaultOpen: false,
+        lessons: [
+          { title: 'Understanding Mortgages: The Basics', type: 'article' },
+          { title: 'Fixed vs. Adjustable Rate Mortgages', type: 'article' },
+          { title: 'How Much Home Can You Afford?', type: 'article' },
+          { title: 'Jasmine\u2019s First Home Purchase', type: 'play' },
+          { title: 'Lesson 4 Checkpoint', type: 'checkpoint' },
+        ],
+      },
     ],
   },
 
