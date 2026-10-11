@@ -164,6 +164,16 @@ export const courseModules: Record<string, CourseModule> = {
         ],
       },
       {
+        title: 'Bonus Lesson: The Annuity Formula',
+        defaultOpen: false,
+        lessons: [
+          { title: 'What Is an Annuity?', type: 'article' },
+          { title: 'The Annuity Formula, Step by Step', type: 'article' },
+          { title: 'Using Annuities in Retirement Planning', type: 'article' },
+          { title: 'Bonus Lesson Checkpoint', type: 'checkpoint' },
+        ],
+      },
+      {
         title: 'Lesson 3: Maximizing Your Credit Score',
         defaultOpen: true,
         lessons: [
@@ -200,7 +210,7 @@ export const courseModules: Record<string, CourseModule> = {
         ],
       },
       {
-        title: 'Lesson 4: Mortgages and Major Purchases',
+        title: 'Lesson 4: Housing and Mortgages',
         defaultOpen: false,
         lessons: [
           { title: 'Understanding Mortgages: The Basics', type: 'article' },

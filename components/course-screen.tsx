@@ -192,8 +192,13 @@ export function CourseScreen({ module }: { module: CourseModule }) {
       )}
 
       {/* Title */}
-      <div className="px-5 pb-5 pt-5">
-        <h1 className="truncate text-[22px] font-extrabold leading-[1.15] text-[#1a1a1a]">
+      <div className="flex items-start gap-4 px-5 pb-5 pt-5">
+        <img
+          src={module.icon || '/placeholder.svg'}
+          alt=""
+          className="h-[64px] w-[64px] shrink-0 rounded-2xl object-cover"
+        />
+        <h1 className="min-w-0 flex-1 text-[22px] font-extrabold leading-[1.15] text-[#1a1a1a] text-pretty">
           {module.title}
         </h1>
       </div>
