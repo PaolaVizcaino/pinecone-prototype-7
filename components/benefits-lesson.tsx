@@ -136,7 +136,7 @@ export function BenefitsLesson() {
             less to borrow.
           </li>
           <li>
-            <strong>Save a lot of money over time.</strong> Even a small difference in interest rates can add up
+            <strong>Save a lot of money over time.</strong>{' '}Even a small difference in interest rates can add up
             to thousands&mdash;or tens of thousands&mdash;of dollars over the years.
           </li>
         </ul>
@@ -156,7 +156,7 @@ export function BenefitsLesson() {
 
         <p className="mt-6 text-[17px] leading-relaxed">
           <strong>Sam saves $45 per month</strong> with a very good credit score compared to a fair one. Over{' '}
-          <strong>5 years (60 payments)</strong>, that adds up to <strong>about $2,700 saved</strong> on the exact
+          <strong>5 years (60 payments)</strong>, that adds up to <strong>about $2,700 saved</strong>{' '}on the exact
           same car&mdash;money that stays with Sam instead of going to interest.
         </p>
         <p className="mt-4 text-[17px] leading-relaxed">Same car. Same 5-year term. Just a stronger credit score.</p>
